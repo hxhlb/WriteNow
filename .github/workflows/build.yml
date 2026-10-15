@@ -30,7 +30,10 @@ jobs:
 
     - name: Setup Theos
       run: |
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/OwnGoalStudio/theos/refs/heads/master/bin/install-theos)"
+        curl -fsSL https://raw.githubusercontent.com/OwnGoalStudio/theos/refs/heads/master/bin/install-theos -o "$RUNNER_TEMP/install-theos"
+        # The installer explicitly updates Homebrew despite HOMEBREW_NO_AUTO_UPDATE.
+        sed -i '' '/^[[:space:]]*brew update || true$/d' "$RUNNER_TEMP/install-theos"
+        bash "$RUNNER_TEMP/install-theos"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
