@@ -123,7 +123,7 @@ struct LiteEditionBannerHeader: View {
     var body: some View {
         if WriteNowAppModel.shared.isJailbroken {
             Section {
-                Button(NSLocalizedString("Buy Complete Edition", bundle: Bundle.wrti_support, comment: "")) {
+                Button(NSLocalizedString("Get Jailbreak Edition", bundle: Bundle.wrti_support, comment: "")) {
                     let url = URL(string: "https://havoc.app/package/writenow")!
                     UIApplication.shared.open(url)
                 }

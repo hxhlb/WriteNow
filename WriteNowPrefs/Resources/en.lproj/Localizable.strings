@@ -44,9 +44,6 @@
 "Built-in Endpoint Activated" = "Built-in Endpoint Activated";
 
 /* No comment provided by engineer. */
-"Buy Complete Edition" = "Buy Complete Edition";
-
-/* No comment provided by engineer. */
 "Cancel" = "Cancel";
 
 /* No comment provided by engineer. */
@@ -150,6 +147,9 @@
 
 /* No comment provided by engineer. */
 "Get Endpoint Key" = "Get Endpoint Key";
+
+/* No comment provided by engineer. */
+"Get Jailbreak Edition" = "Get Jailbreak Edition";
 
 /* HTTP 410 */
 "Gone" = "Gone";

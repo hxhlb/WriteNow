@@ -44,9 +44,6 @@
 "Built-in Endpoint Activated" = "内置节点已激活";
 
 /* No comment provided by engineer. */
-"Buy Complete Edition" = "购买完整版";
-
-/* No comment provided by engineer. */
 "Cancel" = "取消";
 
 /* No comment provided by engineer. */
@@ -150,6 +147,9 @@
 
 /* No comment provided by engineer. */
 "Get Endpoint Key" = "获取密钥";
+
+/* No comment provided by engineer. */
+"Get Jailbreak Edition" = "获取越狱版";
 
 /* HTTP 410 */
 "Gone" = "Gone";
