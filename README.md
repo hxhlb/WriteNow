@@ -1,94 +1,140 @@
 # Write Now
 
-[now-on-havoc]: https://havoc.app/package/writenow
+**Elevate your writing with just a click.**
 
-[<img width="150" src="https://docs.havoc.app/img/badges/get_square.svg" />][now-on-havoc]
+An AI writing assistant for iOS. Proofread, rewrite, and refine your tone from the text editing menu, using an OpenAI-compatible provider of your choice.
 
-**Elevate Your Writing with Just a Click**
+[简体中文](Resources/i18n/zh-Hans/README.md)
 
-[简体中文](./Resources/i18n/zh-Hans/README.md)
+![Preview](Resources/Preview.png)
 
-Transform your text in an instant with Write Now, your all-in-one writing assistant. Whether you’re crafting a message, editing a document, or refining your next masterpiece, Write Now ensures your words leave the impact you desire—all while prioritizing your privacy.
+## Table of Contents
 
-![Preview](./Resources/Preview.png)
+- [Lite Edition](#lite-edition)
+- [Key Features](#key-features)
+- [User Guide](#user-guide)
+- [Compatibility](#compatibility)
+- [Building from Source](#building-from-source)
+- [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ## Lite Edition
 
-Due to the complexity of the plugin configuration, we cannot guarantee that your configuration will work in the software, even though the software provides built-in nodes for you to use. To improve this issue, we provide a trial version for users of the Havoc Store. You can [click to install](https://intradeus.github.io/http-protocol-redirector?r=apple-magnifier://install?url=https://github.com/owngoal-dev/WriteNow/raw/main/Resources/LiteEdition/WriteNowLite_1.7.5.tipa) or [download this package](./Resources/LiteEdition/WriteNowLite_1.7.5.tipa).
+Write Now Lite packages the writing assistant as a standalone app. It can be used with [TrollFools](https://github.com/Lessica/TrollFools/) or similar injection tools to bring writing tools into other apps.
 
-This version of the software package must be used with [TrollFools](https://github.com/Lessica/TrollFools/) or similar technologies.
+To build a `.tipa` package, follow the [build instructions](#building-from-source) below. Configure your own endpoint and model before using the writing tools.
 
-## Key Features:
+## Key Features
 
-We have optimized all our prompts to function effectively across various models. Here are the key features of Write Now:
-
-- **Proofread**  
-  Ensure your text is polished and error-free. Our Proofread tool scans your content for grammar, spelling, and style issues, providing instant suggestions to elevate your writing.
-
-- **Rewrite**  
-  Need a fresh take? The Rewrite feature intelligently rephrases your text while maintaining its original meaning, helping you find the perfect expression for every idea.
-
-- **Friendly Tone**  
-  Make your writing more approachable and warm with the Friendly mode. Perfect for casual emails, social media posts, or any communication where a personal touch is key.
-
-- **Professional Tone**  
-  When you need to be concise and formal, the Professional mode has you covered. It adjusts your text to a tone that’s ideal for business, academic, or technical writing.
-
-- **Concise Mode**  
-  Cut through the clutter with the Concise tool, designed to trim unnecessary words and make your message as clear and direct as possible.
-
-- **Custom AI Server Configuration**  
-  Your privacy is our top priority. Write Now supports custom AI server configurations, ensuring that your data remains entirely private and secure. With this feature, you can use the AI on your own server, keeping your writing process free from any data collection.
+- **Proofread** — Correct spelling, grammar, and punctuation while preserving your meaning.
+- **Rewrite** — Improve clarity and flow with a fresh expression of the same ideas.
+- **Friendly Tone** — Make messages and everyday writing warmer and more approachable.
+- **Professional Tone** — Refine wording for formal, business, or academic communication.
+- **Concise Mode** — Remove unnecessary words and keep the essentials.
+- **Custom AI Server Configuration** — Connect to an OpenAI-compatible provider or a server you host yourself, with your choice of model.
 
 ## User Guide
 
 ### Installation
 
-To utilize Write Now with your iOS devices, it is necessary to have the Dopamine jailbreak installed. If you have not yet installed Dopamine, please follow the instructions provided [here](https://ios.cfw.guide/) to get started.
+On a compatible jailbroken device, install the `.deb` package for your environment using a package manager such as Sileo. The project supports rootless and RootHide builds; see [Building from Source](#building-from-source).
 
-Once you have completed the jailbreak setup, add the [Havoc Repo](https://havoc.app/) to Sileo and sign in to the repository. After that, download and install Write Now. This process will register your device with Havoc for DRM verification.
+For the standalone app, see [Lite Edition](#lite-edition).
 
 ### Setup Endpoints
 
-To utilize the AI features, it is necessary to configure the AI server endpoints. You have the option to use endpoints from OpenAI API providers or host your own AI server.
+Open Write Now's preferences or the companion app, add an endpoint URL and API key, then select a model. You can configure multiple endpoints and switch between models from the writing tools interface.
+
+The text you submit is sent to your configured server for processing. Choose a provider whose data policy suits your needs, or use a self-hosted server.
 
 #### OpenAI API Providers
 
-We recommend the following OpenAI API providers. After obtaining the key, please fill in the endpoint and key fields in the settings and select a model to get started. Most of the providers offer a generous quota for your personal use.
+The following endpoint examples can be entered in Write Now. Obtain an API key from your provider and choose a model available to your account.
 
-- [OpenAI](https://platform.openai.com/)
+| Provider | Endpoint | API Key |
+| --- | --- | --- |
+| [OpenAI](https://platform.openai.com/) | `https://api.openai.com` | [Manage keys](https://platform.openai.com/api-keys) |
+| [Together AI](https://www.together.ai/) | `https://api.together.xyz` | [Manage keys](https://api.together.ai/settings/api-keys) |
+| [OpenRouter](https://openrouter.ai/) | `https://openrouter.ai/api` | [Manage keys](https://openrouter.ai/settings/keys) |
+| [Groq](https://groq.com/) | `https://api.groq.com/openai` | [Manage keys](https://console.groq.com/keys) |
+| [NVIDIA NIM](https://build.nvidia.com/) | `https://integrate.api.nvidia.com` | [Developer portal](https://build.nvidia.com/) |
 
-  - Endpoint: `https://api.openai.com/`
-  - Get key from [here](https://platform.openai.com/api-keys)
+Write Now adds the `/v1` API path automatically; use the base addresses shown above. Model availability and usage limits are determined by each provider.
 
-- [TogetherAI](https://api.together.xyz/)
-
-  - Endpoint: `https://api.together.xyz/`
-  - Get key from [here](https://api.together.ai/settings/api-keys)
-
-- [OpenRouter](https://openrouter.ai/)
-
-  - Endpoint: `https://openrouter.ai/api`
-  - Get key from [here](https://openrouter.ai/settings/keys)
-
-- [Groq](https://groq.com/)
-
-  - Endpoint: `https://api.groq.com/openai/`
-  - Get key from [here](https://console.groq.com/keys)
-
-- [NVIDIA NIM](https://www.nvidia.com/en-us/ai/)
-  - Endpoint: `https://integrate.api.nvidia.com`
-  - Get key from [here](https://build.nvidia.com/explore/reasoning)
-- [GitHub Models](https://github.com/marketplace/models)
-  - Endpoint: `https://models.inference.ai.azure.com`
-  - Get key from [here](https://github.com/settings/tokens)
+The GitHub Models endpoint listed in earlier versions of this guide is no longer available. See [GitHub's service notice](https://docs.github.com/en/github-models).
 
 #### Self-Host AI Server
 
-If you prefer to host your own AI server for enhanced privacy, consider the following OpenAI API implementations. Once you have set up the endpoint, it will be your responsibility to complete the remaining configurations.
+You can also connect to an OpenAI-compatible server powered by [Ollama](https://ollama.com/) or [Xinference](https://github.com/xorbitsai/inference). Enter an address reachable from your iOS device, configure authentication if required, and select a model served by that endpoint.
 
-- [ollama](https://ollama.com/)
-- [xorbitsai/inference](https://github.com/xorbitsai/inference)
+## Compatibility
+
+- **iOS:** 15.0 or later.
+- **Tweak:** Requires a compatible jailbreak; rootless and RootHide package configurations are included.
+- **Lite Edition:** Requires a compatible TrollStore environment. Integration with other apps requires TrollFools or a similar injection tool.
+- **Text editing:** Supports UIKit text fields and text views, with WebKit integration. Availability depends on the app's text editing implementation.
+
+## Building from Source
+
+### Requirements
+
+- macOS and Xcode with the iOS SDK.
+- [Theos](https://github.com/owngoal-dev/theos) installed at `~/theos`, with its SDKs and build dependencies configured.
+- [`swift-create-xcframework@5.9`](https://github.com/Lessica/swift-create-xcframework/releases/tag/v5.9), `xcbeautify`, and `ldid` available in `PATH`.
+- For Lite Edition packaging: `insert_dylib` and `7z`.
+
+Keep the checked-in `Package.resolved` files when resolving Swift dependencies.
+
+### Rootless Package
+
+```sh
+git clone https://github.com/owngoal-dev/WriteNow.git
+cd WriteNow
+source devkit/rootless.sh
+FINALPACKAGE=1 make package
+```
+
+The generated `.deb` file is placed in `packages/`.
+
+### RootHide Package
+
+Use the `legacy-roothide` tag of the RootHide toolchain:
+
+```sh
+git clone --recursive --branch legacy-roothide https://github.com/owngoal-dev/theos-roothide.git ~/theos-roothide-legacy
+```
+
+Configure its SDKs, then build from the Write Now repository:
+
+```sh
+source devkit/roothide.sh
+FINALPACKAGE=1 make package
+```
+
+### Lite Edition Package
+
+```sh
+source devkit/rootless.sh
+./devkit/compile.sh
+```
+
+The generated `WriteNowLite_*.tipa` file is placed in `packages/` for installation with TrollStore.
+
+## Acknowledgments
+
+Write Now is built with these open-source projects:
+
+- [OpenAI for Swift](https://github.com/MacPaw/OpenAI) — OpenAI-compatible API client.
+- [SwiftNIO](https://github.com/apple/swift-nio) and [NIOSSL](https://github.com/apple/swift-nio-ssl) — Networking and TLS.
+- [ColorfulX](https://github.com/Lakr233/ColorfulX), [ColorVector](https://github.com/Lakr233/ColorVector), [SpringInterpolation](https://github.com/Lakr233/SpringInterpolation), and [MSDisplayLink](https://github.com/Lakr233/MSDisplayLink) — Colors and animation.
+- [SwiftUI Introspect](https://github.com/siteline/swiftui-introspect) — Access to underlying UIKit views.
+- [libroot](https://github.com/opa334/libroot) — Jailbreak path support.
+
+See [Third-party Notices](THIRD_PARTY_NOTICES.md) for dependency licenses.
+
+## License
+
+Write Now is available under the [MIT License](LICENSE).
 
 ---
 
